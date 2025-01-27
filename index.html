@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niveles</title>
+  <style>
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Encabezado */
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .header img {
+      width: 125px;
+      height: 125px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Botones de unidades */
+    .units {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .unit {
+      width: 100px;
+      height: 100px;
+      background-color: #4caf50;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .unit:hover {
+      background-color: #2e7d32;
+      transform: scale(1.1);
+    }
+
+    /* Pie de página */
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Encabezado -->
+    <div class="header">
+      <img src="https://polyglots-at.github.io/at/polyglots.jpg" alt="Logo de la Plataforma">
+      <h1>Niveles</h1>
+    </div>
+
+    <!-- Botones de unidades -->
+    <div class="units">
+      <a class="unit" href="https://polyglots-at.github.io/contenido/unidadesa1.html">A1</a>
+      <a class="unit" href="unidad2.html">A2</a>
+      <a class="unit" href="unidad3.html">B1</a>
+
+    </div>
+
+    <!-- Pie de página -->
+    <div class="footer">
+     <p>&copy; 2024 Polyglots</p>    </div>
+  </div>
+</body>
+</html>

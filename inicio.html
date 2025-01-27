@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenidos a la Plataforma de Idiomas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqk1w2/knoG80k332eYXYlOjLiPF4t60aUM/zOaNqCg7IA5+WvJ5g/hS+OiGYtdno6tZ5S0I/o=" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      line-height: 0.2;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Encabezado */
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .header img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Formulario de inicio de sesión */
+    .login-form {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .login-form .submit-button {
+      padding: 10px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #4caf50;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      text-transform: uppercase;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin-bottom: 10px; /* Espacio entre botones */
+    }
+
+    .login-form .submit-button:hover {
+      background-color: #2e7d32;
+      transform: scale(1.1);
+    }
+
+    /* Botón de Google */
+    .google-button {
+      background-color: #4285f4; /* Color de Google */
+      color: #fff;
+    }
+
+    .google-button i {
+      margin-right: 10px; /* Espacio entre el icono y el texto */
+    }
+
+    /* Pie de página */
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Encabezado -->
+    <div class="header">
+      <img src="https://polyglots-at.github.io/at/polyglots.jpg" alt="Logo de la Plataforma">
+      <h1>Login</h1>
+    </div>
+
+    <!-- Formulario de inicio de sesión -->
+    <form class="login-form">
+      <input type="email" id="email" placeholder="Correo Electrónico" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit" class="submit-button" onclick="signInWithEmailAndPassword()">Iniciar sesión con contraseña</button>
+      <button type="button" onclick="signInWithGoogle()" class="submit-button google-button">
+        <i class="fab fa-google"></i> Iniciar sesión con Google
+      </button>
+    </form>
+
+    <!-- Pie de página -->
+    <div class="footer">
+      <p>&copy; 2024 Polyglots</p>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script>
+    // Inicializa Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCQICCJvKwkwyns0BdrdNOzwUAE_2ESOn4",
+      authDomain: "polyglots-at.firebaseapp.com",
+      projectId: "polyglots-at",
+      storageBucket: "polyglots-at.firebasestorage.app",
+      messagingSenderId: "962913161343",
+      appId: "1:962913161343:web:4389c04072558567e82f4a",
+      measurementId: "G-7ETP44D3BC"
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Crea un proveedor de Google
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    // Inicia sesión con Google
+    function signInWithGoogle() {
+      firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          // El usuario inició sesión correctamente
+          const user = result.user;
+          console.log("Usuario inició sesión:", user);
+          // Redirige al usuario a la página principal
+          window.location.href = "https://polyglots-at.github.io/ex/index.html"; // Reemplaza con la URL de tu página principal
+        })
+        .catch((error) => {
+          // Maneja el error
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error("Error al iniciar sesión:", errorCode, errorMessage);
+        });
+    }
+
+    // Inicia sesión con correo electrónico y contraseña
+    function signInWithEmailAndPassword() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // El usuario inició sesión correctamente
+          const user = userCredential.user;
+          console.log("Usuario inició sesión:", user);
+          // Redirige al usuario a la página principal
+          window.location.href = "https://polyglots-at.github.io/ex/index.html"; // Reemplaza con la URL de tu página principal
+        })
+        .catch((error) => {
+          // Maneja el error
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error("Error al iniciar sesión:", errorCode, errorMessage);
+        });
+    }
+  </script>
+</body>
+</html>
