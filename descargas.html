@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Políglotas</title>
+    <style>
+        /* Estilos Generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: #000033;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-weight: bold
+        }
+
+        .menu a:hover {
+            opacity: 0.8;
+        }
+
+        /* Contenido Principal */
+        .container {
+            flex: 1;
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .main-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Tabla de Libros */
+        .library-table {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            padding: 1rem;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .book-row {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .book-row:nth-child(even) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .book-row:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Botón de Descarga */
+        .download-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-self: end;
+            transition: transform 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .download-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000033;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 100px 1rem 1rem;
+            }
+
+            .table-header {
+                display: none;
+            }
+
+            .book-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .download-btn {
+                justify-self: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+
+            .menu {
+                gap: 1rem;
+            }
+
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="https://polyglots-at.github.io/at/polyglots.jpg" alt="Logo">
+        </a>
+    
+    </header>
+
+    <div class="container">
+        <div class="main-title">
+            <h1>Proyecto Polyglots</h1>
+            <p>Descarga materiales para el aprendizaje de idiomas</p>
+        </div>
+
+        <div class="library-table">
+            <div class="table-header">
+                <span>Título del Libro</span>
+                <span>Descargar</span>
+            </div>
+
+            <div class="book-row">
+                <span>Guía Bilingüe Inglés-Español Binder</span>
+                <a href="https://cdn.education.ne.gov/wp-content/uploads/2020/05/Gu%C3%ADa-Biling%C3%BCe-Ingl%C3%A9s-%E2%80%93-Espa%C3%B1ol-Binder.pdf" class="download-btn" download>  <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Descargar
+                </a>
+            </div>
+
+            <div class="book-row">
+                <span>El curso más completo de Inglés</span>
+                <a href="https://guao.org/sites/default/files/biblioteca/El%20curso%20m%C3%A1s%20completo%20de%20ingl%C3%A9s.pdf" class="download-btn" download>  <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Descargar
+                </a>
+            </div>
+
+            <div class="book-row">
+                <span>40 lecciones de Italiano</span>
+                <a href="https://mercaba.org/SANLUIS/IDIOMAS/Italiano/Aulaf%C3%A1cil%20-%2040%20lecciones.pdf" class="download-btn" download>  <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Descargar
+                </a>
+            </div>
+
+            <div class="book-row">
+                <span>Curso de Portugués en Español</span>
+                <a href="https://www.mundomanuales.com/manuales/1199.pdf" class="download-btn" download>  <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Descargar
+                </a>
+            </div>
+
+            <div class="book-row">
+                <span>Manual del traductor</span>
+                <a href="https://www.9h05.com/wa_files/00-ManualDelTraductor_Oct2012.pdf" class="download-btn" download>  <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Descargar
+                </a>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Proyecto Políglotas. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
