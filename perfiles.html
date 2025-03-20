@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnet Online - ATENEO SAPERE AUDE</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #5489aa;
+            color: #333;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2em;
+        }
+
+        .section.perfil {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            width: 600px;
+        }
+
+        .carnet {
+            display: flex;
+            align-items: center;
+        }
+
+        .foto-perfil {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 2em;
+        }
+
+        .foto-perfil img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .datos-perfil p {
+            margin: 0.5em 0;
+        }
+
+        .nombre-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            margin-left: 1em;
+            align-items: center;
+        }
+
+        footer {
+            background-color: #5489aa;
+            color: #333;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .download-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-self: end;
+            transition: transform 0.3s;
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GLOBAL ATENEO SAPERE AUDE</h1>
+
+    </header>
+    <main>
+        <section class="perfil">
+            <h2></h2>
+            <div class="carnet">
+                <div class="foto-perfil">
+                    <img src="data:image/png;base64,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" alt="Foto de perfil">
+                </div>
+                <div class="datos-perfil">
+                
+                    <p><strong>Nombre:</strong> GLENDYS MORALES</p>
+                    <p><strong>Cédula:</strong> V-25645508</p>
+                    <p><strong>Escuela:</strong> IDIOMAS</p>
+                    <p><strong>Rol:</strong> ESTUDIANTE</p>
+                    <p><strong>Nivel:</strong> A2</p>
+                    <p><strong>Idioma:</strong> ENG</p>
+                    <p><strong>Estatus:</strong>ACTIVO</p>
+                </div>
+                <div class="book-row">
+                    <span>CERTIFICADO A2</span>
+                    <a href="https://cdn.education.ne.gov/wp-content/uploads/2020/05/Gu%C3%ADa-Biling%C3%BCe-Ingl%C3%A9s-%E2%80%93-Espa%C3%B1ol-Binder.pdf" class="download-btn" download>  <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                    DESCARGAR
+                    </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 ATENEO SAPERE AUDE - Polyglots</p>
+    </footer>
+</body>
+</html>
